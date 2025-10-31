@@ -1,4 +1,5 @@
 import { ArrowRight, Facebook, Instagram, Earth } from "lucide-react";
+import bannerImg from "../assets/images/banner.jpg";
 
 function Home() {
   return (
@@ -38,7 +39,7 @@ function Home() {
         {/* Bên phải */}
         <div className="max-w-xl pt-14">
           <img
-            src="./public/images/banner.jpg"
+            src={bannerImg}
             alt=""
             className="min-h-[70vh] object-cover rounded-tl-[50px] rounded-br-[50px] rounded-tr-[10px] rounded-bl-[10px]"
           />
