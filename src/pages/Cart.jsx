@@ -91,46 +91,48 @@ function Cart() {
               ))}
             </div>
           )}
-          <div className="col-start-3 col-span-1 h-[400px] border border-gray-100 rounded-md shadow-lg p-4">
-            {/* Tổng tiền và nút thanh toán */}
-            <h1 className="font-bold text-2xl mb-12">Tổng hợp</h1>
-            <div className=" flex flex-col items-end gap-4 ">
-              <div className="w-full flex justify-between">
-                <span className="text-right">Tổng cộng:</span>
-                <span className="font-bold text-lg text-right">
-                  {total.toLocaleString("vi-VN")}đ
-                </span>
-              </div>
-
-              <div className="w-full flex justify-between">
-                <span className="text-right">Phí giao hàng:</span>
-                <span className="font-bold text-lg text-right">20.000đ</span>
-              </div>
-              <div className="w-full border-t border-gray-300 pt-6">
-                <div className="flex justify-between bg-[#ffece2] p-4 rounded-sm">
-                  <span className="text-right bg-">Tổng thanh toán:</span>
-                  <span className="font-extrabold text-xl text-[#EA6D27] text-right">
-                    {(total + 20000).toLocaleString("vi-VN")}đ
+          {carts.length > 0 && (
+            <div className="col-start-3 col-span-1 h-[400px] border border-gray-100 rounded-md shadow-lg p-4">
+              {/* Tổng tiền và nút thanh toán */}
+              <h1 className="font-bold text-2xl mb-12">Tổng hợp</h1>
+              <div className=" flex flex-col items-end gap-4 ">
+                <div className="w-full flex justify-between">
+                  <span className="text-right">Tổng cộng:</span>
+                  <span className="font-bold text-lg text-right">
+                    {total.toLocaleString("vi-VN")}đ
                   </span>
                 </div>
+
+                <div className="w-full flex justify-between">
+                  <span className="text-right">Phí giao hàng:</span>
+                  <span className="font-bold text-lg text-right">20.000đ</span>
+                </div>
+                <div className="w-full border-t border-gray-300 pt-6">
+                  <div className="flex justify-between bg-[#ffece2] p-4 rounded-sm">
+                    <span className="text-right bg-">Tổng thanh toán:</span>
+                    <span className="font-extrabold text-xl text-[#EA6D27] text-right">
+                      {(total + 20000).toLocaleString("vi-VN")}đ
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => navigate("/checkout")}
+                className="w-full px-4 py-2 bg-[#EA6D27] text-white font-bold rounded-sm hover:opacity-80 duration-200 mt-6"
+              >
+                Thanh toán
+              </button>
+              <div className="w-full flex justify-center p-4">
+                <button
+                  onClick={() => navigate("/menu")}
+                  className="mb-4 font-bold flex gap-2 w-fit hover:cursor-pointer hover:text-[#EA6D27] duration-300"
+                >
+                  Tiếp tục chọn món
+                </button>
               </div>
             </div>
-
-            <button
-              onClick={() => navigate("/checkout")}
-              className="w-full px-4 py-2 bg-[#EA6D27] text-white font-bold rounded-sm hover:opacity-80 duration-200 mt-6"
-            >
-              Thanh toán
-            </button>
-            <div className="w-full flex justify-center p-4">
-              <button
-                onClick={() => navigate("/menu")}
-                className="mb-4 font-bold flex gap-2 w-fit hover:cursor-pointer hover:text-[#EA6D27] duration-300"
-              >
-                Tiếp tục chọn món
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
