@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div className=" h-20 grid grid-cols-12 gap-x-3 px-3 items-center">
       {/* Logo - tiêu đề */}
-      <div className=" col-start-2 w-fit">
+      <div className=" col-start-2 2xl:col-start-3 w-fit">
         <p className="text-2xl font-extrabold text-left w-auto hover:cursor-pointer hover:text-[#EA6D27] duration-300">
           ReactFood
         </p>
@@ -25,7 +25,7 @@ function Navbar() {
         </Link>
       </div>
       {/* Đăng nhập */}
-      <div className="col-start-10 col-end-12 justify-self-end flex flex-row gap-6 items-center">
+      <div className="col-start-10 col-end-12 2xl:col-start-9 2xl:col-end-11 justify-self-end flex flex-row gap-6 items-center">
         <button className="flex flex-row p-2 rounded-full hover:cursor-pointer hover:text-white hover:bg-amber-600 duration-300">
           <ShoppingCart />{" "}
         </button>
