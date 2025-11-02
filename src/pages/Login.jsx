@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -13,18 +15,25 @@ function Login() {
     e.preventDefault();
     setLoading(true);
 
-    // Giả lập xử lý đăng nhập (1s)
     await new Promise((r) => setTimeout(r, 1000));
 
-    alert(`Email: ${form.email}\nMật khẩu: ${form.password}`);
+    sessionStorage.setItem(
+      "token",
+      JSON.stringify({
+        email: form.email,
+      })
+    );
+
+    // Quay lại trang trước đó hoặc trang chủ
+    navigate(-1);
     setLoading(false);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md flex flex-col gap-4 border border-gray-100 shadow-md rounded-xl p-8"
+        className="w-full bg-white max-w-md flex flex-col gap-4 border border-gray-100 shadow-md rounded-xl p-8"
       >
         <h1 className="text-3xl font-bold text-center">Đăng nhập</h1>
         <p className="text-center text-gray-600 mb-4">
@@ -69,7 +78,14 @@ function Login() {
         >
           {loading ? "Đang đăng nhập..." : "Đăng nhập"}
         </button>
-
+        <div className="w-full flex justify-center">
+          <button
+            className="hover:cursor-pointer hover:underline text-orange-600 font-semibold"
+            onClick={() => navigate("/")}
+          >
+            Tiếp tục mà không đăng nhập
+          </button>
+        </div>
         <div className="bg-blue-50 text-sm text-gray-700 p-4 rounded-md border border-blue-100 mt-2">
           <p className="font-semibold">Demo tài khoản:</p>
           <p>Email: demo@email1.com</p>

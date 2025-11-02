@@ -6,6 +6,9 @@ import MenuDetail from "../pages/MenuDetail";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import Login from "../pages/Login";
+
+import PrivateRoute from "./PrivateRoute";
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -14,10 +17,30 @@ export default function AppRoutes() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MenuList />} />
-        <Route path="/menu/:id" element={<MenuDetail />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/menu/:id"
+          element={
+            <PrivateRoute>
+              <MenuDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );
