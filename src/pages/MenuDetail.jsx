@@ -22,18 +22,18 @@ function MenuDetail() {
     }
   }, [id]);
 
-  if (!food) return <p>Đang tải món ăn...</p>;
+  if (!food) return <p className="w-full text-center">Đang tải món ăn...</p>;
 
   // Xử lý thêm vào giỏ hàng
   const handleAdd = () => {
-    addToCart(food);
+    addToCart(food, quantity);
     alert("Đã thêm vào giỏ hàng!");
     console.log(JSON.parse(sessionStorage.getItem("cart")));
   };
 
   return (
     <div className="w-full min-h-[calc(100vh-80px)] grid grid-cols-12 gap-x-3 px-3 py-12">
-      <div className=" w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11 ">
+      <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11 ">
         <div
           className="mb-4 font-bold flex gap-2 w-fit hover:cursor-pointer hover:text-[#EA6D27] duration-300"
           onClick={() => navigate(-1)}
@@ -41,7 +41,7 @@ function MenuDetail() {
           <MoveLeft />
           <p>Quay lại</p>
         </div>
-        <div className="bg-gray-100 grid grid-cols-2 shadow-lg rounded-xl h-9/10">
+        <div className="bg-gray-100 flex flex-col lg:grid md:grid-cols-2 shadow-lg rounded-xl lg:h-9/10">
           {/* Ảnh */}
           <div className="h-full p-8">
             <img
@@ -64,8 +64,10 @@ function MenuDetail() {
                   ? "Tráng miệng"
                   : "Không xác định"}
               </p>
-              <h1 className="text-5xl font-bold my-8">{food.name}</h1>
-              <p>{food.description}</p>
+              <h1 className="text-3xl lg:text-5xl font-bold mt-8 mb-4">
+                {food.name}
+              </h1>
+              <p className="mb-4">{food.description}</p>
             </div>
             <div className="w-full">
               {/* Giá */}
@@ -81,7 +83,7 @@ function MenuDetail() {
                 <div className="flex flex-row">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 border border-gray-300 rounded-[3px] hover:bg-gray-200 text-2xl font-bold"
+                    className="w-10 h-10 border border-gray-300 rounded-[3px] hover:bg-gray-200 hover:cursor-pointer text-2xl font-bold"
                   >
                     -
                   </button>
@@ -90,7 +92,7 @@ function MenuDetail() {
                   </p>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 border border-gray-300 rounded-[3px] hover:bg-gray-200 text-2xl font-bold"
+                    className="w-10 h-10 border border-gray-300 rounded-[3px] hover:bg-gray-200 hover:cursor-pointer text-2xl font-bold"
                   >
                     +
                   </button>

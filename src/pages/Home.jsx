@@ -7,11 +7,11 @@ function Home() {
 
   return (
     <div className="w-full min-h-[calc(100vh-80px)] grid grid-cols-12 gap-x-3 px-3 items-center">
-      <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11 flex flex-row justify-between">
+      <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11 flex flex-col-reverse lg:flex-row justify-between">
         {/* Bên trái */}
-        <div className="pt-14">
+        <div className="pt-14 lg:pr-8 w-full">
           <h1 className="font-extrabold text-4xl">Chào mừng đến với</h1>
-          <h2 className="font-extrabold text-6xl bg-linear-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent mt-4 mb-8">
+          <h2 className="font-extrabold text-5xl md:text-6xl bg-linear-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent mt-4 mb-8">
             React Food
           </h2>
           <p className="max-w-2xl">
@@ -26,12 +26,12 @@ function Home() {
             onClick={() => {
               navigate("menu");
             }}
-            className="mt-20 mb-6 px-4 py-2 font-semibold bg-[#101A24] text-white rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm hover:cursor-pointer hover:opacity-80 duration-200"
+            className="mt-12 lg:mt-20 mb-6 px-4 py-2 font-semibold bg-[#101A24] text-white rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm hover:cursor-pointer hover:opacity-80 duration-200"
           >
             Menu <ArrowRight className="inline-block ml-2" />
           </button>
           {/* Mạng xã hội */}
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-4 mb-8">
             <div className="p-2 rounded-full border-2 hover:bg-black hover:text-white duration-300">
               <Facebook size={22} />
             </div>
@@ -44,11 +44,11 @@ function Home() {
           </div>
         </div>
         {/* Bên phải */}
-        <div className="max-w-xl mt-4">
+        <div className="w-full lg:max-w-xl mt-4 ">
           <img
             src={bannerImg}
             alt=""
-            className="min-h-[70vh] object-cover rounded-tl-[50px] rounded-br-[50px] rounded-tr-[10px] rounded-bl-[10px]"
+            className="h-[20vh] w-full lg:min-h-[70vh] object-cover rounded-xl lg:rounded-tl-[50px] lg:rounded-br-[50px] lg:rounded-tr-[10px] lg:rounded-bl-[10px]"
           />
         </div>
       </div>

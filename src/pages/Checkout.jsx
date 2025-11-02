@@ -77,7 +77,7 @@ function Checkout() {
       <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11">
         <h1 className="font-bold text-3xl mb-8">Đặt hàng</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col-reverse lg:grid grid-cols-1 lg:grid-cols-3 gap-6">
           <form
             onSubmit={handleSubmit}
             className="col-span-2 flex flex-col gap-4 border border-gray-100 rounded-md shadow-lg p-4"

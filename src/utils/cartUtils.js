@@ -10,14 +10,14 @@ export function saveCart(cart) {
 }
 
 // Thêm món vào giỏ
-export function addToCart(item) {
+export function addToCart(item, quantity = 1) {
   const cart = getCart();
   const existing = cart.find((f) => f.id === item.id);
 
   if (existing) {
-    existing.quantity += 1; // tăng số lượng nếu đã có
+    existing.quantity += quantity;
   } else {
-    cart.push({ ...item, quantity: 1 });
+    cart.push({ ...item, quantity });
   }
 
   saveCart(cart);

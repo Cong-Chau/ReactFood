@@ -1,16 +1,11 @@
+import { Trash2, Plus, Minus } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  getCart,
-  removeFromCart,
-  updateCartItem,
-  clearCart,
-} from "../utils/cartUtils";
+import { getCart, removeFromCart, updateCartItem } from "../utils/cartUtils";
 
 function Cart() {
   const [carts, setCarts] = useState([]);
   const navigate = useNavigate();
-
   useEffect(() => {
     setCarts(getCart());
   }, []);
@@ -32,8 +27,7 @@ function Cart() {
     <div className="w-full min-h-[calc(100vh-80px)] grid grid-cols-12 gap-x-3 px-3 py-12">
       <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11">
         <h1 className="font-bold text-3xl mb-8">Giỏ hàng của bạn</h1>
-
-        <div className="grid grid-cols-3 gap-6">
+        <div className="flex flex-col lg:grid grid-cols-3 gap-6">
           {carts.length === 0 ? (
             <div className="p-8 rounded-md flex flex-col justify-center gap-4 col-span-3">
               <p className="text-center text-lg font-bold text-gray-700">
@@ -53,40 +47,48 @@ function Cart() {
               {carts.map((item) => (
                 <div
                   key={item.id}
-                  className="flex flex-row justify-between items-center p-4 border border-gray-100 rounded-md shadow-lg"
+                  className="flex flex-col gap-4 md:flex-row justify-between items-center p-4 border border-gray-100 rounded-md shadow-lg"
                 >
-                  <div className="flex flex-row items-center gap-4">
+                  <div className="w-full flex flex-row items-center gap-4">
                     <img
                       src={item.imageUrl}
                       alt={item.name}
                       className="w-20 h-20 object-cover rounded-lg"
                     />
-                    <div>
+                    <div className="flex flex-col gap-2">
                       <h2 className="font-bold text-xl">{item.name}</h2>
-                      <div className="flex items-center gap-2">
-                        <p>Số lượng:</p>
-                        <input
-                          type="number"
-                          min="1"
-                          value={item.quantity}
-                          onChange={(e) =>
-                            handleQuantityChange(
-                              item.id,
-                              parseInt(e.target.value)
-                            )
-                          }
-                          className="w-16 border border-gray-400 rounded px-2 text-center"
-                        />
-                      </div>
-                      <p>Giá: {item.price.toLocaleString("vi-VN")}đ / Phần</p>
+                      <p>{item.price.toLocaleString("vi-VN")}đ / Phần</p>
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleRemove(item.id)}
-                    className="px-4 py-2 bg-[#9b9b9b] text-white rounded-sm hover:cursor-pointer hover:opacity-80 duration-200"
-                  >
-                    Xóa
-                  </button>
+                  <div className="w-full flex items-center justify-between md:justify-end gap-6">
+                    <div className="flex flex-row">
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item.id, item.quantity - 1)
+                        }
+                        className="w-8 h-8 border border-gray-300 rounded-[3px] hover:bg-gray-200 hover:cursor-pointer text-2xl font-bold flex justify-center items-center"
+                      >
+                        <Minus size={16} />
+                      </button>
+                      <p className="w-14 h-8 text-center font-bold text-2xl">
+                        {item.quantity}
+                      </p>
+                      <button
+                        onClick={() =>
+                          handleQuantityChange(item.id, item.quantity + 1)
+                        }
+                        className="w-8 h-8 border border-gray-300 rounded-[3px] hover:bg-gray-200 hover:cursor-pointer hover:cursor-pointer text-2xl font-bold flex justify-center items-center"
+                      >
+                        <Plus size={16} />
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => handleRemove(item.id)}
+                      className="p-2  text-[#ff0000] rounded-sm hover:cursor-pointer hover:bg-[#ff0000] hover:text-white duration-200"
+                    >
+                      <Trash2 />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

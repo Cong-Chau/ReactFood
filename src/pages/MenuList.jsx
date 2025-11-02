@@ -58,7 +58,7 @@ function MenuList() {
           />
         </div>
         {/* Category */}
-        <div className="w-full flex flex-row items-center mt-4 gap-4 overflow-x-auto pb-2">
+        <div className="w-full flex flex-row flex-wrap items-center mt-4 gap-4 overflow-x-auto pb-2">
           <div
             onClick={() => {
               handleFilterFoods("all");
@@ -88,7 +88,7 @@ function MenuList() {
           ))}
         </div>
         {/* Foods */}
-        <div className="mt-8 grid grid-cols-5 gap-4">
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {filterFoods
             .filter((food) => food.status == "AVAILABLE")
             .map((food) => (
