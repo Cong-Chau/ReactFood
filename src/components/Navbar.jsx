@@ -7,18 +7,16 @@ function Navbar() {
 
   const token = JSON.parse(sessionStorage.getItem("token") || "{}");
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    navigate("/login");
-  };
-
   return (
     <div className=" h-20 grid grid-cols-12 gap-x-3 px-3 items-center">
       {/* Logo - tiêu đề */}
       <div className=" col-start-2 2xl:col-start-3 w-fit">
-        <p className="text-2xl font-extrabold text-left w-auto hover:cursor-pointer hover:text-[#EA6D27] duration-300">
+        <Link
+          to="/"
+          className="text-2xl font-extrabold text-left w-auto hover:cursor-pointer hover:text-[#EA6D27] duration-300"
+        >
           ReactFood
-        </p>
+        </Link>
       </div>
       {/* Điều hướng */}
       <div className="col-start-6 col-end-8 flex justify-center gap-6 font-semibold">
@@ -35,7 +33,6 @@ function Navbar() {
           Menu
         </Link>
       </div>
-      {/* Đăng nhập */}
       {/* Đăng nhập */}
       <div className="col-start-10 col-end-12 2xl:col-start-9 2xl:col-end-11 justify-self-end flex flex-row gap-6 items-center">
         <button
