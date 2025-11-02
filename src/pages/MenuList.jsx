@@ -118,7 +118,7 @@ function MenuList() {
                     </p>
                   </div>
                 </div>
-                <div className="mt-2 text-center w-full flex flex-row justify-between items-end px-4">
+                <div className="mt-2 text-center w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-end px-4">
                   <p className="font-bold text-[#EA6D27] text-2xl">
                     {food.price.toLocaleString("vi-VN")}đ
                   </p>
