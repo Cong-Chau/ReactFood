@@ -101,7 +101,7 @@ function MenuList() {
           ))}
         </div>
         {/* Foods */}
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {filterFoods
             .filter((food) => food.status == "AVAILABLE")
             .map((food) => (
