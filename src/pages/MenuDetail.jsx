@@ -35,13 +35,13 @@ function MenuDetail() {
     <div className="w-full min-h-[calc(100vh-80px)] grid grid-cols-12 gap-x-3 px-3 py-12">
       <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11 ">
         <div
-          className="mb-4 font-bold flex gap-2 w-fit hover:cursor-pointer hover:text-[#EA6D27] duration-300"
+          className="mb-4 font-bold flex gap-2 w-fit text-white hover:cursor-pointer hover:text-[#9810fa] duration-300"
           onClick={() => navigate(-1)}
         >
           <MoveLeft />
           <p>Quay lại</p>
         </div>
-        <div className="bg-gray-100 flex flex-col lg:grid md:grid-cols-2 shadow-lg rounded-xl lg:h-9/10">
+        <div className="bg-[#f4e5ff] flex flex-col lg:grid md:grid-cols-2 shadow-lg rounded-xl lg:h-9/10">
           {/* Ảnh */}
           <div className="h-full p-8">
             <img
@@ -53,7 +53,7 @@ function MenuDetail() {
           {/* Chi tiết */}
           <div className="flex flex-col justify-between items-start p-8">
             <div className="w-full">
-              <p className="w-fit text-sm px-3 py-1 rounded-full text-[#EA6D27] bg-[#ffe8db] font-bold">
+              <p className="w-fit text-sm px-3 py-1 rounded-full text-[#9810fa] bg-[#e9caff] font-bold">
                 {food.category === 1
                   ? "Món nước"
                   : food.category === 2
@@ -71,9 +71,9 @@ function MenuDetail() {
             </div>
             <div className="w-full">
               {/* Giá */}
-              <div className="bg-[#ffece2] p-4 rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm mb-4">
+              <div className="bg-[#e9caff] p-4 rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm mb-4">
                 <p className="text-gray-600">Giá</p>{" "}
-                <p className="font-bold text-[#EA6D27] text-4xl">
+                <p className="font-bold text-[#9810fa] text-4xl">
                   {food.price.toLocaleString("vi-VN")}đ
                 </p>
               </div>
@@ -104,7 +104,7 @@ function MenuDetail() {
                   onClick={() => {
                     handleAdd();
                   }}
-                  className="flex flex-row items-center justify-center gap-4 text-lg font-bold text-white bg-[#EA6D27] px-4 py-2 rounded-sm hover:cursor-pointer hover:opacity-70 duration-200"
+                  className="flex flex-row items-center justify-center gap-4 text-lg font-bold text-white bg-[#9810fa] px-4 py-2 rounded-sm hover:cursor-pointer hover:opacity-70 duration-200"
                 >
                   <ShoppingCart size={20} />
                   <p>Thêm vào giỏ hàng</p>

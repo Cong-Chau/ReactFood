@@ -30,7 +30,7 @@ function Navbar() {
       <div className=" col-start-2 2xl:col-start-3 w-fit">
         <Link
           to="/"
-          className=" text-[#EA6D27] text-2xl font-extrabold text-left w-auto hover:cursor-pointer hover:opacity-80 duration-200"
+          className=" text-[#9810fa] text-2xl font-extrabold text-left w-auto hover:cursor-pointer hover:opacity-80 duration-200"
         >
           ReactFood
         </Link>
@@ -39,13 +39,13 @@ function Navbar() {
       <div className="hidden col-start-6 col-end-8 lg:flex justify-center gap-6 font-semibold">
         <Link
           to="/"
-          className="hover:font-bold hover:text-[#EA6D27] duration-300"
+          className="hover:font-bold text-white hover:text-[#9810fa] duration-300"
         >
           Trang chủ
         </Link>
         <Link
           to="/menu"
-          className="hover:font-bold hover:text-[#EA6D27] duration-300"
+          className="hover:font-bold text-white hover:text-[#9810fa] duration-300"
         >
           Menu
         </Link>
@@ -54,7 +54,7 @@ function Navbar() {
       <div className="col-start-10 col-end-12 2xl:col-start-9 2xl:col-end-11 justify-self-end flex flex-row gap-6 items-center">
         <button
           onClick={() => navigate("/cart")}
-          className="flex flex-row p-2 rounded-full hover:cursor-pointer hover:text-white hover:bg-amber-600 duration-300"
+          className="flex flex-row p-2 rounded-full hover:cursor-pointer text-white  hover:bg-[#9810fa] duration-300"
         >
           <ShoppingCart />{" "}
         </button>
@@ -63,7 +63,7 @@ function Navbar() {
         <div className="hidden lg:block">
           {token.email ? (
             <div className="flex flex-row items-center gap-2">
-              <span className="font-semibold">{token.email}</span>
+              <span className="font-semibold text-white">{token.email}</span>
               <button
                 onClick={() => {
                   sessionStorage.removeItem("token");
@@ -78,7 +78,7 @@ function Navbar() {
             // Nếu chưa đăng nhập
             <button
               onClick={() => navigate("/login")}
-              className="px-4 py-2 font-semibold bg-[#EA6D27] text-white rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm hover:cursor-pointer hover:opacity-70 duration-200"
+              className="px-4 py-2 font-semibold bg-[#9810fa] text-white rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm hover:cursor-pointer hover:opacity-70 duration-200"
             >
               Đăng nhập
             </button>
@@ -92,7 +92,7 @@ function Navbar() {
           {token.email ? (
             <>
               {/* Icon menu */}
-              <button onClick={handleToggle} className="p-2">
+              <button onClick={handleToggle} className="p-2 text-white">
                 <Menu size={24} />
               </button>
 
@@ -125,7 +125,7 @@ function Navbar() {
           ) : (
             <button
               onClick={() => navigate("/login")}
-              className="px-3 py-1.5 text-sm font-semibold bg-[#EA6D27] text-white rounded-tl-md rounded-br-md hover:opacity-80 duration-200"
+              className="px-3 py-1.5 text-sm font-semibold bg-[#9810fa] text-white rounded-tl-md rounded-br-md hover:opacity-80 duration-200"
             >
               Đăng nhập
             </button>

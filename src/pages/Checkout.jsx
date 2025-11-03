@@ -74,13 +74,13 @@ function Checkout() {
 
   return (
     <div className="w-full min-h-[calc(100vh-80px)] grid grid-cols-12 gap-x-3 px-3 py-12">
-      <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11">
-        <h1 className="font-bold text-3xl mb-8">Đặt hàng</h1>
+      <div className=" w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11">
+        <h1 className="font-bold text-3xl mb-8 text-[#9810fa]">Đặt hàng</h1>
 
         <div className="flex flex-col-reverse lg:grid grid-cols-1 lg:grid-cols-3 gap-6">
           <form
             onSubmit={handleSubmit}
-            className="col-span-2 flex flex-col gap-4 border border-gray-100 rounded-md shadow-lg p-4"
+            className="bg-[#f4e5ff] col-span-2 flex flex-col gap-4 border border-gray-100 rounded-md shadow-lg p-4"
           >
             <h2 className="font-bold text-2xl">Thông tin giao hàng</h2>
             <label>
@@ -89,7 +89,7 @@ function Checkout() {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2"
+                className="w-full border border-gray-500 rounded-md p-2"
                 required
               />
             </label>
@@ -100,7 +100,7 @@ function Checkout() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2"
+                className="w-full border border-gray-500 rounded-md p-2"
                 required
               />
             </label>
@@ -110,7 +110,7 @@ function Checkout() {
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2"
+                className="w-full border border-gray-500 rounded-md p-2"
               />
             </label>
             <label>
@@ -119,7 +119,7 @@ function Checkout() {
                 name="address"
                 value={form.address}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2"
+                className="w-full border border-gray-500 rounded-md p-2"
               />
             </label>
             <label>
@@ -128,13 +128,13 @@ function Checkout() {
                 name="note"
                 value={form.note}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2"
+                className="w-full border border-gray-500 rounded-md p-2"
               />
             </label>
 
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-[#EA6D27] text-white font-bold rounded-sm hover:opacity-80 duration-200"
+              className="w-full px-4 py-2 bg-[#9810fa] text-white font-bold rounded-sm hover:opacity-80 duration-200"
             >
               {loading ? (
                 <div className="flex items-center justify-center gap-2">
@@ -148,7 +148,7 @@ function Checkout() {
           </form>
 
           {/* Tóm tắt đơn hàng */}
-          <div className="h-fit border border-gray-100 rounded-md shadow-lg p-4">
+          <div className="bg-[#f4e5ff] h-fit border border-gray-100 rounded-md shadow-lg p-4">
             <h1 className="font-bold text-2xl mb-4">Tóm tắt đơn hàng</h1>
 
             <div className="flex flex-col gap-4 max-h-[300px] overflow-y-auto">
@@ -168,7 +168,7 @@ function Checkout() {
               ))}
             </div>
 
-            <div className="border-t border-gray-300 mt-4 pt-2">
+            <div className="border-t border-gray-600 mt-4 pt-2">
               <div className="flex justify-between">
                 <span>Tạm tính:</span>
                 <span>{total.toLocaleString("vi-VN")}đ</span>
@@ -177,7 +177,7 @@ function Checkout() {
                 <span>Phí giao hàng:</span>
                 <span>20.000đ</span>
               </div>
-              <div className="flex justify-between font-bold text-[#EA6D27] mt-2">
+              <div className="flex justify-between font-bold text-[#9810fa] mt-2">
                 <span>Tổng cộng:</span>
                 <span>{(total + 20000).toLocaleString("vi-VN")}đ</span>
               </div>

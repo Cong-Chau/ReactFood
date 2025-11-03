@@ -30,10 +30,10 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="bg-[#020618] min-h-screen flex items-center justify-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full bg-white max-w-md flex flex-col gap-4 border border-gray-100 shadow-md rounded-xl p-8"
+        className="w-full bg-[#f4e5ff] max-w-md flex flex-col gap-4 border border-gray-100 shadow-md rounded-xl p-8"
       >
         <h1 className="text-3xl font-bold text-center">Đăng nhập</h1>
         <p className="text-center text-gray-600 mb-4">
@@ -49,7 +49,7 @@ function Login() {
             placeholder="your@email.com"
             value={form.email}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 outline-none"
+            className="w-full bg-white border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-[#9810fa] outline-none"
             required
           />
         </div>
@@ -62,7 +62,7 @@ function Login() {
             placeholder="********"
             value={form.password}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 outline-none"
+            className="w-full bg-white border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-[#9810fa] outline-none"
             required
           />
         </div>
@@ -70,17 +70,17 @@ function Login() {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full py-3 rounded-md text-white font-semibold text-lg transition-all duration-200 ${
+          className={`w-full py-3  rounded-md text-white font-semibold text-lg transition-all duration-200 ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-[#ff4500] hover:opacity-90"
+              : "bg-[#9810fa] hover:opacity-90 hover:cursor-pointer"
           }`}
         >
           {loading ? "Đang đăng nhập..." : "Đăng nhập"}
         </button>
         <div className="w-full flex justify-center">
           <button
-            className="hover:cursor-pointer hover:underline text-orange-600 font-semibold"
+            className="hover:cursor-pointer hover:underline text-[#9810fa] font-semibold"
             onClick={() => navigate("/")}
           >
             Tiếp tục mà không đăng nhập

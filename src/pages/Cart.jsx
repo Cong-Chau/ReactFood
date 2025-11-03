@@ -26,7 +26,9 @@ function Cart() {
   return (
     <div className="w-full min-h-[calc(100vh-80px)] grid grid-cols-12 gap-x-3 px-3 py-12">
       <div className="w-full col-start-2 col-end-12 2xl:col-start-3 2xl:col-end-11">
-        <h1 className="font-bold text-3xl mb-8">Giỏ hàng của bạn</h1>
+        <h1 className="font-bold text-3xl mb-8 text-[#9810fa]">
+          Giỏ hàng của bạn
+        </h1>
         <div className="flex flex-col lg:grid grid-cols-3 gap-6">
           {carts.length === 0 ? (
             <div className="p-8 rounded-md flex flex-col justify-center gap-4 col-span-3">
@@ -36,7 +38,7 @@ function Cart() {
               <div className="w-full flex justify-center">
                 <button
                   onClick={() => navigate("/menu")}
-                  className="px-4 py-2 font-semibold bg-[#EA6D27] text-white rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm hover:cursor-pointer hover:opacity-70 duration-200"
+                  className="px-4 py-2 font-semibold bg-[#9810fa] text-white rounded-tl-[10px] rounded-br-[10px] rounded-tr-sm rounded-bl-sm hover:cursor-pointer hover:opacity-70 duration-200"
                 >
                   Chọn thêm món ăn
                 </button>
@@ -47,7 +49,7 @@ function Cart() {
               {carts.map((item) => (
                 <div
                   key={item.id}
-                  className="flex flex-col gap-4 md:flex-row justify-between items-center p-4 border border-gray-100 rounded-md shadow-lg"
+                  className="bg-[#f4e5ff] flex flex-col gap-4 md:flex-row justify-between items-center p-4 border border-gray-100 rounded-md shadow-lg"
                 >
                   <div className="w-full flex flex-row items-center gap-4">
                     <img
@@ -77,7 +79,7 @@ function Cart() {
                         onClick={() =>
                           handleQuantityChange(item.id, item.quantity + 1)
                         }
-                        className="w-8 h-8 border border-gray-300 rounded-[3px] hover:bg-gray-200 hover:cursor-pointer hover:cursor-pointer text-2xl font-bold flex justify-center items-center"
+                        className="w-8 h-8 border border-gray-300 rounded-[3px] hover:bg-gray-200 hover:cursor-pointer text-2xl font-bold flex justify-center items-center"
                       >
                         <Plus size={16} />
                       </button>
@@ -94,7 +96,7 @@ function Cart() {
             </div>
           )}
           {carts.length > 0 && (
-            <div className="col-start-3 col-span-1 h-[400px] border border-gray-100 rounded-md shadow-lg p-4">
+            <div className="bg-[#f4e5ff] col-start-3 col-span-1 h-[400px] border border-gray-100 rounded-md shadow-lg p-4">
               {/* Tổng tiền và nút thanh toán */}
               <h1 className="font-bold text-2xl mb-12">Tổng hợp</h1>
               <div className=" flex flex-col items-end gap-4 ">
@@ -109,10 +111,10 @@ function Cart() {
                   <span className="text-right">Phí giao hàng:</span>
                   <span className="font-bold text-lg text-right">20.000đ</span>
                 </div>
-                <div className="w-full border-t border-gray-300 pt-6">
-                  <div className="flex justify-between bg-[#ffece2] p-4 rounded-sm">
-                    <span className="text-right bg-">Tổng thanh toán:</span>
-                    <span className="font-extrabold text-xl text-[#EA6D27] text-right">
+                <div className="w-full border-t border-gray-600 pt-6">
+                  <div className="flex justify-between bg-[#e9caff] p-4 rounded-sm">
+                    <span className="text-right">Tổng thanh toán:</span>
+                    <span className="font-extrabold text-xl text-[#9810fa] text-right">
                       {(total + 20000).toLocaleString("vi-VN")}đ
                     </span>
                   </div>
@@ -121,14 +123,14 @@ function Cart() {
 
               <button
                 onClick={() => navigate("/checkout")}
-                className="w-full px-4 py-2 bg-[#EA6D27] text-white font-bold rounded-sm hover:opacity-80 duration-200 mt-6"
+                className="w-full px-4 py-2 bg-[#9810fa] text-white font-bold rounded-sm hover:opacity-80 duration-200 mt-6"
               >
                 Thanh toán
               </button>
               <div className="w-full flex justify-center p-4">
                 <button
                   onClick={() => navigate("/menu")}
-                  className="mb-4 font-bold flex gap-2 w-fit hover:cursor-pointer hover:text-[#EA6D27] duration-300"
+                  className="mb-4 font-bold flex gap-2 w-fit hover:cursor-pointer hover:text-[#9810fa] duration-300"
                 >
                   Tiếp tục chọn món
                 </button>
